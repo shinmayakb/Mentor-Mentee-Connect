@@ -89,9 +89,9 @@ To build a scalable and user-friendly platform that improves **mentor-mentee int
 * 📊 Analytics dashboard
 
 ## Developed By
-Shinnmaya KB
-Abirami K
-Rakchitha M
+* Shinnmaya KB
+* Abirami K
+* Rakchitha M
 
 ## License
 This project is open-source and available under the **MIT License**.

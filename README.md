@@ -26,7 +26,10 @@ Backend : Java (Core + JDBC)
 Database : MySQL
 IDE: IntelliJ IDEA
 
+
 ## Project Structure
+
+```
 mentor-connect/
 │
 ├── src/                # Source code
@@ -35,6 +38,7 @@ mentor-connect/
 ├── docs/               # UML diagrams & documentation
 ├── README.md
 └── .gitignore
+```
 
 
 ## How to Run

@@ -16,15 +16,15 @@ Mentor Connect is a software engineering project designed to bridge the gap betw
 
 ## Architecture
 The system follows a 3-Tier Architecture:
-Presentation Layer → Java UI (Swing / JavaFX / JSP)
-Application Layer → Business Logic (Controllers & Services)
-Data Layer → MySQL Database
+* Presentation Layer → Java UI (Swing / JavaFX / JSP)
+* Application Layer → Business Logic (Controllers & Services)
+* Data Layer → MySQL Database
 
 ## Tech Stack
-Frontend : Java (Swing / JavaFX / JSP-Servlets)
-Backend : Java (Core + JDBC)
-Database : MySQL
-IDE: IntelliJ IDEA
+* Frontend : Java (Swing / JavaFX / JSP-Servlets)
+* Backend : Java (Core + JDBC)
+* Database : MySQL
+* IDE: IntelliJ IDEA
 
 
 ## Project Structure
@@ -64,11 +64,12 @@ DatabaseConnection.java
 
 ##  Screenshots
 screenshots inside `/screenshots` folder
+
 Example:
-Login Page
-Dashboard
-Chat Window
-Mentor Search
+* Login Page
+* Dashboard
+* Chat Window
+* Mentor Search
 
 ## Documentation
 Available in `/docs` folder:
@@ -82,14 +83,15 @@ To build a scalable and user-friendly platform that improves **mentor-mentee int
 
 
 ## Future Enhancements
-🤖 AI-based mentor recommendation
-📹 Video conferencing integration
-📱 Mobile application support
-📊 Analytics dashboard
+* 🤖 AI-based mentor recommendation
+* 📹 Video conferencing integration
+* 📱 Mobile application support
+* 📊 Analytics dashboard
 
 ## Developed By
-Shinnmaya
-
+Shinnmaya KB
+Abirami K
+Rakchitha M
 
 ## License
 This project is open-source and available under the **MIT License**.

@@ -1,0 +1,80 @@
+-- create a database for mentor connect
+CREATE DATABASE mentor_connect_app;
+use mentor_connect_app;
+
+-- user table (mentor and mentee)
+CREATE TABLE IF NOT EXISTS register (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    role ENUM('Mentor', 'Mentee') NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL,  -- Store hashed password
+    email VARCHAR(100) UNIQUE NOT NULL,
+    phone VARCHAR(15),
+    gender VARCHAR(10),
+    qualification VARCHAR(50),
+    expertise VARCHAR(255) NULL,     -- Mentor field
+    description TEXT NULL,           -- Mentor field
+    status VARCHAR(50) DEFAULT 'Active', -- Used for mentor availability or mentee general status
+    schedule VARCHAR(50) NULL,       -- Mentor field
+    others TEXT NULL
+);
+
+-- user request table
+CREATE TABLE IF NOT EXISTS mentor_requests (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    mentee_name VARCHAR(100) NOT NULL,
+    mentor_name VARCHAR(100) NOT NULL,
+    status ENUM('Pending', 'Accepted', 'Rejected') NOT NULL DEFAULT 'Pending',
+    session_start VARCHAR(5) NULL,   -- e.g., '09:30'
+    session_end VARCHAR(5) NULL,     -- e.g., '10:30'
+    is_read BOOLEAN NOT NULL DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE KEY unique_pending_request (mentee_name, mentor_name, status) 
+);
+
+ALTER TABLE mentor_requests ADD COLUMN mentee_is_read BOOLEAN NOT NULL DEFAULT FALSE;
+ALTER TABLE mentor_requests CHANGE COLUMN created_at request_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+ALTER TABLE mentor_requests MODIFY session_start VARCHAR(20);
+ALTER TABLE mentor_requests MODIFY session_end VARCHAR(20);
+
+-- chat data table
+CREATE TABLE chat_messages (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    mentee_id INT NOT NULL, 
+    mentor_id INT NOT NULL, 
+    sender_id INT NOT NULL,
+    message_content TEXT NOT NULL,
+    is_resource BOOLEAN DEFAULT FALSE,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    resource_data LONGBLOB NULL; 
+    
+    -- Mentee ID check
+    CONSTRAINT fk_chat_mentee
+        FOREIGN KEY (mentee_id) REFERENCES register(id)
+        ON DELETE RESTRICT ON UPDATE CASCADE,
+        
+    -- Mentor ID check
+    CONSTRAINT fk_chat_mentor
+        FOREIGN KEY (mentor_id) REFERENCES register(id)
+        ON DELETE RESTRICT ON UPDATE CASCADE,
+        
+    -- Sender ID check
+    CONSTRAINT fk_chat_sender
+        FOREIGN KEY (sender_id) REFERENCES register(id)
+        ON DELETE RESTRICT ON UPDATE CASCADE,
+
+    INDEX session_index (mentee_id, mentor_id, timestamp)
+);
+
+-- feedback table
+CREATE TABLE mentor_feedback (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    mentee_id INT NOT NULL,
+    mentor_id INT NOT NULL,
+    rating INT NOT NULL CHECK (rating BETWEEN 1 AND 5),
+    feedback_text TEXT,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    CONSTRAINT fk_feedback_mentee FOREIGN KEY (mentee_id) REFERENCES register(id),
+    CONSTRAINT fk_feedback_mentor FOREIGN KEY (mentor_id) REFERENCES register(id)
+);

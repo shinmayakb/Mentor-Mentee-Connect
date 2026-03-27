@@ -5,14 +5,14 @@ Mentor Connect is a software engineering project designed to bridge the gap betw
 Mentor Connect is a software engineering project designed to bridge the gap between **mentors and mentees**. The platform allows mentees to search for mentors based on domain expertise, send mentorship requests, book sessions, and interact through chat.
 
 ## Features
-🔐 User Authentication – Secure login and registration for mentors and mentees
-🔍 Mentor Search – Find mentors based on domain and expertise
-📩 Mentorship Requests – Send, accept, or reject requests
-📅 Slot Booking – Schedule sessions between mentor and mentee
-💬 Chat System – Real-time communication between users
-⭐ Feedback & Rating – Mentees can rate mentors after sessions
-🔔 Notifications – Get updates on requests, messages, and bookings
-👤 Profile Management – Editable mentor and mentee profiles
+* 🔐 User Authentication – Secure login and registration for mentors and mentees
+* 🔍 Mentor Search – Find mentors based on domain and expertise
+* 📩 Mentorship Requests – Send, accept, or reject requests
+* 📅 Slot Booking – Schedule sessions between mentor and mentee
+* 💬 Chat System – Real-time communication between users
+* ⭐ Feedback & Rating – Mentees can rate mentors after sessions
+* 🔔 Notifications – Get updates on requests, messages, and bookings
+* 👤 Profile Management – Editable mentor and mentee profiles
 
 ## Architecture
 The system follows a 3-Tier Architecture:
